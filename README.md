@@ -117,8 +117,8 @@ split -l 20000 HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies.txt HYPERGEO
 
 perl adjust_line_number_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE.pl
 
-## check the line numbers match
-#wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*
+# check the line numbers match
+# wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*
 
 ./run_hypergeometric_ratio_tests.sh
 
@@ -135,6 +135,7 @@ chmod +x run_BH_multiple_testing_corrections_study_accessions.sh
 perl get_study_accession_core_genes_that_pass_cut_off.pl
 
 ######### OUTPUT FILES ##############################################################      
+
 #GWAS Hits ####
 
 european/GENE_LIST_for_each_DISEASE_ID.txt                      #European GWAS hits
@@ -151,17 +152,17 @@ east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt   #East Asian core
 south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  #South Asian core genes
 hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     #Hispanic Core genes
 
-### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 ########################
+### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 ###################
 
 cp merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl ../
 perl merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl
 
-### MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE X#########################
+### MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE X####################
 
 cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../
 perl merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl
 
-#### FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit ###################
+#### FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit #######################################
 cd european/
 perl remove_lines_with_1_overlap.pl
 
