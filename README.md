@@ -1,3 +1,37 @@
+############################################################################################
+DOWNLOAD INPUT FILES
+############################################################################################
+(1) Download files from the STRING network.
+Navigate to https://string-db.org/, click "Download", specify "Homo sapiens" in the box that states "choose an organism"
+
+Download the following files from "INTERACTION DATA"
+
+9606.protein.actions.v10.5.txt
+9606.protein.links.v10.5.txt
+
+Download the protein aliases file from "ACCESSORY DATA"
+protein.aliases.v10.5.txt
+
+(2) Download data from the GWAS catalog
+Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
+
+download "All ancestry data v1.0"
+gwas_catalog-ancestry_r2018-08-28.tsv
+
+download "All associations v1.0"
+gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
+
+navigate to "GWAS to EFO mappings", then click on "our FTP server"
+download gwas-efo-trait-mappings.tsv
+
+(3) Download HGNC protein names
+Navigate to https://www.genenames.org/, click "Downloads", then click "Statistics and download files". Download txt file of protein coding genes.
+gene_with_protein_product.txt
+
+#####################################################################################
+INITIAL SET UP
+#####################################################################################
+
 Step1:
 Make new folders for each ancestry.
 
@@ -12,13 +46,34 @@ mkdir south_asian/
 mkdir hispanic/
 
 Step2:
-Copy all of the scripts and input files into the 5 folders (european + african + east_asian + south_asian + hispanic).
+Download all scripts and files from git hub and copy into the 5 folders (european + african + east_asian + south_asian + hispanic).
 Please see "List_of_input_files_and_scripts.txt" to make sure you have all the appropriate files in each folder.
-Please see "Download_instructions.txt" to see where the input files were obtained from.
 
 Step3:
-Replace the step1.pl with the file appropriate for that ancestry. The default is suropean, so nothingh needs to be done to the scripts within the european folder.
+Copy certain scripts from the european folder to the folder above
 
+cd european/
+
+cp merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl ../
+
+cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../
+
+cp get_distance.pl ../
+
+cp calculate_distance_bw_them.pl ../
+
+cp get_core_gene_gwas_pairs_within_1Mb.pl ../
+
+cp get_all_combinations_of_two.pl ../
+
+cp get_proportion_of_GWAS_hits_in_each_core_gene_detection_line.pl ../
+
+cp make_S1_table.pl ../
+
+cp make_S2_table.pl ../
+
+Step4:
+Navigate to each ancestry folder and replace the step1.pl script with the ancestry specific script. The default scripts are european, so nothing needs to be done to the scripts within the european folder.
 
 #African ###
 cd african/
@@ -40,9 +95,12 @@ cd hispanic/
 cp step1_hispanic.pl step1.pl
 cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh
 
-Step 4: Run the following commands within each ancestry folder. (The following commands should be run within the european folder, african folder, east asian folder, south_asian folder and hispanic folder)
+#####################################################################################
+ANALYSIS STEPS
+#####################################################################################
+The core gene detection is done separately for each ancestry. This means that the following commands need to be run within each ancestry folder.
+(This means that the following commands should be run within the european folder, african folder, east asian folder, south_asian folder and hispanic folder)
 
-##### ANALYSIS STEPS ########################################
 perl only_get_physical_ppi_interactions.pl
 
 ./run_QC.sh
@@ -76,8 +134,8 @@ chmod +x run_BH_multiple_testing_corrections_study_accessions.sh
 ./run_sort_by_p_value_after_BH_multiple_testing_corrections_study_accessions.sh
 perl get_study_accession_core_genes_that_pass_cut_off.pl
 
-######### FINAL OUTPUT FILES ##############################################################
-# GWAS Hits ####
+######### OUTPUT FILES ##############################################################      
+#GWAS Hits ####
 
 european/GENE_LIST_for_each_DISEASE_ID.txt                      #European GWAS hits
 african/GENE_LIST_for_each_DISEASE_ID.txt                       #African GWAS hits
@@ -94,10 +152,12 @@ south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  #South Asian cor
 hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     #Hispanic Core genes
 
 ### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 ########################
+
 cp merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl ../
 perl merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl
 
 ### MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE X#########################
+
 cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../
 perl merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl
 
@@ -123,22 +183,26 @@ cat african/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_wi
 cat south_asian/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
 cat east_asian/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
 
-cp filter_for_2_or_more_gwas_hits.pl ../
 perl filter_for_2_or_more_gwas_hits.pl
 
-cp annotate_studies_with_excess_PPI_edges.pl ../
 perl annotate_studies_with_excess_PPI_edges.pl
+
+#### Calculate distance between GWAS hit and core gene and remove core genes that are within 1MB of a gwas hit
 
 perl get_distance.pl
 
 perl calculate_distance_bw_them.pl
+
 perl get_core_gene_gwas_pairs_within_1Mb.pl
 
 perl get_all_combinations_of_two.pl
+
 perl get_proportion_of_GWAS_hits_in_each_core_gene_detection_line.pl
+
+######### Make Supplementary Table 1 ##################################
 
 perl make_S1_table.pl
 
+######## Make Supplementary Table 2 ###################################
+
 perl make_S2_table.pl
-
-
