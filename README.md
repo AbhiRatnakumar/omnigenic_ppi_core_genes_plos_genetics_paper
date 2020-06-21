@@ -99,6 +99,44 @@ perl merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl
 cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../
 perl merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl
 
-# please note there will be more PPI-GWAS from running these scripts than within the supplemnatry file that is because
-## additional filtering was done on the ppi-gwas to remove ppi-gwas that are within 1mB OF CORE GENE etc please see manuscript methods ###
+#### FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit ###################
+cd european/
+perl remove_lines_with_1_overlap.pl
+
+cd african/
+perl remove_lines_with_1_overlap.pl
+
+cd south_asian/
+perl remove_lines_with_1_overlap.pl
+
+cd east_asian/
+perl remove_lines_with_1_overlap.pl
+
+cd hispanic/
+perl remove_lines_with_1_overlap.pl
+
+cat european/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt > MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
+cat hispanic/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
+cat african/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
+cat south_asian/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
+cat east_asian/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt >> MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt
+
+cp filter_for_2_or_more_gwas_hits.pl ../
+perl filter_for_2_or_more_gwas_hits.pl
+
+cp annotate_studies_with_excess_PPI_edges.pl ../
+perl annotate_studies_with_excess_PPI_edges.pl
+
+perl get_distance.pl
+
+perl calculate_distance_bw_them.pl
+perl get_core_gene_gwas_pairs_within_1Mb.pl
+
+perl get_all_combinations_of_two.pl
+perl get_proportion_of_GWAS_hits_in_each_core_gene_detection_line.pl
+
+perl make_S1_table.pl
+
+perl make_S2_table.pl
+
 
