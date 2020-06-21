@@ -18,6 +18,8 @@ Please see "Download_instructions.txt" to see where the input files were obtaine
 
 Step3:
 Replace the step1.pl with the file appropriate for that ancestry. The default is suropean, so nothingh needs to be done to the scripts within the european folder.
+
+
 #African ###
 cd african/
 cp step1_african.pl step1.pl
