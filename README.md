@@ -117,8 +117,7 @@ split -l 20000 HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies.txt HYPERGEO
 
 perl adjust_line_number_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE.pl
 
-# check the line numbers match
-# wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*
+##### check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*)
 
 ./run_hypergeometric_ratio_tests.sh
 
