@@ -1,1 +1,29 @@
-Here are the download instructions for the various input files
+############################################################################################
+DOWNLOAD INPUT FILES
+############################################################################################
+(1) Download files from the STRING network.
+Navigate to https://string-db.org/, click "Download", specify "Homo sapiens" in the box that states "choose an organism"
+
+Download the following files from "INTERACTION DATA" 
+
+9606.protein.actions.v10.5.txt 
+9606.protein.links.v10.5.txt
+
+Download the protein aliases file from "ACCESSORY DATA"
+protein.aliases.v10.5.txt
+
+(2) Download data from the GWAS catalog
+Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
+
+download "All ancestry data v1.0"
+gwas_catalog-ancestry_r2018-08-28.tsv
+
+download "All associations v1.0"
+gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
+
+navigate to "GWAS to EFO mappings", then click on "our FTP server"
+download gwas-efo-trait-mappings.tsv
+
+(3) Download HGNC protein names
+Navigate to https://www.genenames.org/, click "Downloads", then click "Statistics and download files". Download txt file of protein coding genes.
+gene_with_protein_product.txt
