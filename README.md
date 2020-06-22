@@ -199,10 +199,10 @@ perl get_all_combinations_of_two.pl
 
 perl get_proportion_of_GWAS_hits_in_each_core_gene_detection_line.pl
 
-######### Make Supplementary Table 1 ##################################
-
-perl make_S1_table.pl
-
-######## Make Supplementary Table 2 ###################################
+######### Make Supplementary Table 2 ##################################
 
 perl make_S2_table.pl
+
+######## Make Supplementary Table 3 ###################################
+
+perl make_S3_table.pl
