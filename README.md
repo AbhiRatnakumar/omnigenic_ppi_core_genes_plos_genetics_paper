@@ -1,3 +1,5 @@
+This code is for the paper: https://doi.org/10.1371/journal.pgen.1008903
+
 
 # DOWNLOAD INPUT FILES
 
