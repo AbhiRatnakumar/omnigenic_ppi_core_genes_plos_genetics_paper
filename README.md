@@ -38,7 +38,7 @@ Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 # INITIAL SET UP
 
 
-1. Step1: Make new folders for each ancestry.
+**Step1: Make new folders for each ancestry. **
 
 `mkdir european/`
 
@@ -50,9 +50,9 @@ Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 
 `mkdir hispanic/`
 
-2. Step2: Download all scripts and files from git hub and copy into the 5 folders (european + african + east_asian + south_asian + hispanic).Please see "List_of_input_files_and_scripts.txt" to make sure you have all the appropriate files in each folder.
+**Step2: Download all scripts and files from git hub and copy into the 5 folders (european + african + east_asian + south_asian + hispanic).Please see "List_of_input_files_and_scripts.txt" to make sure you have all the appropriate files in each folder.**
 
-3. Step3: Copy certain scripts from the european folder to the folder above
+**Step3: Copy certain scripts from the european folder to the folder above**
 
 `cd european/`
 
@@ -74,7 +74,7 @@ Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 
 `cp make_S2_table.pl ../`
 
-4. Step4: Navigate to each ancestry folder and replace the step1.pl script with the ancestry specific script. The default scripts are european, so nothing needs to be done to the scripts within the european folder.
+**Step4: Navigate to each ancestry folder and replace the step1.pl script with the ancestry specific script. The default scripts are european, so nothing needs to be done to the scripts within the european folder.**
 
 ## African 
 `cd african/`
@@ -153,27 +153,37 @@ check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_st
 
 ### GWAS Hits 
 
-** `european/GENE_LIST_for_each_DISEASE_ID.txt` **                     #European GWAS hits
+european/GENE_LIST_for_each_DISEASE_ID.txt                   #European GWAS hits
 
-** `african/GENE_LIST_for_each_DISEASE_ID.txt` **                      #African GWAS hits
+african/GENE_LIST_for_each_DISEASE_ID.txt                    #African GWAS hits
 
-** `east_asian/GENE_LIST_for_each_DISEASE_ID.txt` **                    #East Asian GWAS hits
+east_asian/GENE_LIST_for_each_DISEASE_ID.txt                    #East Asian GWAS hits
 
-** `south_asian/GENE_LIST_for_each_DISEASE_ID.txt` **                   #South Asian GWAS hits
+south_asian/GENE_LIST_for_each_DISEASE_ID.txt                  #South Asian GWAS hits
 
-** `hispanic/GENE_LIST_for_each_DISEASE_ID.txt` **                     #Hispanic GWAS hits
+hispanic/GENE_LIST_for_each_DISEASE_ID.txt                     #Hispanic GWAS hits
 
 ### Core Genes 
 
-** `european/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**     #European core genes
+#### European core genes
 
-** `african/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**      #African core genes
+european/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     
 
-** `east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**  #East Asian core genes
+#### African core genes
 
-** `south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**  #South Asian core genes
+african/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt    
 
-** `hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**     #Hispanic Core genes
+#### East Asian core genes
+
+east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  
+
+#### South Asian core genes
+
+south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  
+
+#### Hispanic Core genes
+
+hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     
 
 ### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 
 
