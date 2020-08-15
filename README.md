@@ -38,8 +38,7 @@ Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 # INITIAL SET UP
 
 
-Step1:
-Make new folders for each ancestry.
+1. Step1: Make new folders for each ancestry.
 
 `mkdir european/`
 
@@ -51,12 +50,9 @@ Make new folders for each ancestry.
 
 `mkdir hispanic/`
 
-Step2:
-Download all scripts and files from git hub and copy into the 5 folders (european + african + east_asian + south_asian + hispanic).
-Please see "List_of_input_files_and_scripts.txt" to make sure you have all the appropriate files in each folder.
+2. Step2: Download all scripts and files from git hub and copy into the 5 folders (european + african + east_asian + south_asian + hispanic).Please see "List_of_input_files_and_scripts.txt" to make sure you have all the appropriate files in each folder.
 
-Step3:
-Copy certain scripts from the european folder to the folder above
+3. Step3: Copy certain scripts from the european folder to the folder above
 
 `cd european/`
 
@@ -78,8 +74,7 @@ Copy certain scripts from the european folder to the folder above
 
 `cp make_S2_table.pl ../`
 
-Step4:
-Navigate to each ancestry folder and replace the step1.pl script with the ancestry specific script. The default scripts are european, so nothing needs to be done to the scripts within the european folder.
+4. Step4: Navigate to each ancestry folder and replace the step1.pl script with the ancestry specific script. The default scripts are european, so nothing needs to be done to the scripts within the european folder.
 
 ## African 
 `cd african/`
@@ -140,55 +135,81 @@ check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_st
 ## BH correction for each study based on the number of PPI nodes each GWAs study hits
 
 `perl split_merged_file_by_accession_id.pl`
-`perl automate_making_the_script_for_running_BH_correction.pl`
+
+`perl automate_making_the_script_for_running_BH_correction.pl` 
+
 `chmod +x run_sort_by_p_value_after_BH_multiple_testing_corrections_study_accessions.sh`
+
 `chmod +x run_BH_multiple_testing_corrections_study_accessions.sh`
+
 `./run_BH_multiple_testing_corrections_study_accessions.sh`
+
 `./run_sort_by_p_value_after_BH_multiple_testing_corrections_study_accessions.sh`
+
 `perl get_study_accession_core_genes_that_pass_cut_off.pl`
+
 
 # OUTPUT FILES     
 
 ### GWAS Hits 
 
-`european/GENE_LIST_for_each_DISEASE_ID.txt`                      #European GWAS hits
-`african/GENE_LIST_for_each_DISEASE_ID.txt `                      #African GWAS hits
-`east_asian/GENE_LIST_for_each_DISEASE_ID.txt`                    #East Asian GWAS hits
-`south_asian/GENE_LIST_for_each_DISEASE_ID.txt`                   #South Asian GWAS hits
-`hispanic/GENE_LIST_for_each_DISEASE_ID.txt`                      #Hispanic GWAS hits
+** `european/GENE_LIST_for_each_DISEASE_ID.txt` **                     #European GWAS hits
+
+** `african/GENE_LIST_for_each_DISEASE_ID.txt` **                      #African GWAS hits
+
+** `east_asian/GENE_LIST_for_each_DISEASE_ID.txt` **                    #East Asian GWAS hits
+
+** `south_asian/GENE_LIST_for_each_DISEASE_ID.txt` **                   #South Asian GWAS hits
+
+** `hispanic/GENE_LIST_for_each_DISEASE_ID.txt` **                     #Hispanic GWAS hits
 
 ### Core Genes 
 
-`european/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`     #European core genes
-`african/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`      #African core genes
-`east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`  #East Asian core genes
-`south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`  #South Asian core genes
-`hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`     #Hispanic Core genes
+** `european/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**     #European core genes
+
+** `african/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**      #African core genes
+
+** `east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**  #East Asian core genes
+
+** `south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**  #South Asian core genes
+
+** `hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt`**     #Hispanic Core genes
 
 ### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 
 
 `cp merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl ../`
+
 `perl merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl`
 
 ### MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE 
 
 `cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../`
+
 `perl merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl`
 
 ### FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit 
 `cd european/`
+
 `perl remove_lines_with_1_overlap.pl`
+
 
 `cd african/`
+
 `perl remove_lines_with_1_overlap.pl`
+
 
 `cd south_asian/`
+
 `perl remove_lines_with_1_overlap.pl`
+
 
 `cd east_asian/`
+
 `perl remove_lines_with_1_overlap.pl`
 
+
 `cd hispanic/`
+
 `perl remove_lines_with_1_overlap.pl`
 
 `cat european/HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt > MERGED_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies_remove_lines_with_1_overlap.txt`
