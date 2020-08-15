@@ -186,7 +186,7 @@ east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt
 
 south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  
 
-### Hispanic Core genes:
+### Hispanic core genes:
 
 hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     
 
