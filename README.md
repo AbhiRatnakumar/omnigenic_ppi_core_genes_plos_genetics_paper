@@ -132,7 +132,7 @@ check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_st
 
 `cat dhyper_output_[a-z][a-z]* | awk '!/^V1/' > merged_dhyper_output_all_studies.txt`
 
-## BH correction for each study based on the number of PPI nodes each GWAs study hits
+## BH correction for each study based on the number of PPI nodes that interact with GWAS hits
 
 `perl split_merged_file_by_accession_id.pl`
 
