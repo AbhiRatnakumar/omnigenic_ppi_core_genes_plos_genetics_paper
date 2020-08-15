@@ -4,25 +4,25 @@
 1. Download files from the STRING network.
 Navigate to https://string-db.org/, click "Download", specify "Homo sapiens" in the box that states "choose an organism"
 
-      -Download the following files from "INTERACTION DATA"
+      - Download the following files from "INTERACTION DATA"
 
-         -9606.protein.actions.v10.5.txt
-         -9606.protein.links.v10.5.txt
+         - 9606.protein.actions.v10.5.txt
+         - 9606.protein.links.v10.5.txt
 
-       - Download the protein aliases file from "ACCESSORY DATA"
+      - Download the protein aliases file from "ACCESSORY DATA"
 
-          -protein.aliases.v10.5.txt
+          - protein.aliases.v10.5.txt
 
 2. Download data from the GWAS catalog
 Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 
      - Download "All ancestry data v1.0"
 
-         -gwas_catalog-ancestry_r2018-08-28.tsv
+         - gwas_catalog-ancestry_r2018-08-28.tsv
 
      - Download "All associations v1.0"
 
-         -gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
+         - gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
 
      - Navigate to "GWAS to EFO mappings", then click on "our FTP server" and download
  
@@ -89,25 +89,25 @@ Navigate to each ancestry folder and replace the step1.pl script with the ancest
 `cp run_hypergeometric_ratio_tests_african.sh run_hypergeometric_ratio_tests.sh`
 
 ## East Asian 
-`cd east_asian/`. 
+`cd east_asian/`
 
-`cp step1_east_asian.pl step1.pl`. 
+`cp step1_east_asian.pl step1.pl`
 
 `cp run_hypergeometric_ratio_tests_east_asian.sh run_hypergeometric_ratio_tests.sh`. 
 
 ## South Asian 
-`cd south_asian/`. 
+`cd south_asian/`
 
-`cp step1_south_asian.pl step1.pl`. 
+`cp step1_south_asian.pl step1.pl` 
 
-`cp run_hypergeometric_ratio_tests_south_asian.sh run_hypergeometric_ratio_tests.sh`. 
+`cp run_hypergeometric_ratio_tests_south_asian.sh run_hypergeometric_ratio_tests.sh` 
 
 ## Hispanic 
-`cd hispanic/`. 
+`cd hispanic/`
 
-`cp step1_hispanic.pl step1.pl`. 
+`cp step1_hispanic.pl step1.pl` 
 
-`cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh`. 
+`cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh` 
 
 
 # ANALYSIS STEPS
