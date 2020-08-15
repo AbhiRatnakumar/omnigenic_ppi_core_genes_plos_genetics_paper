@@ -153,15 +153,20 @@ check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_st
 
 ### GWAS Hits 
 
-european/GENE_LIST_for_each_DISEASE_ID.txt                   #European GWAS hits
+### European GWAS hits
+european/GENE_LIST_for_each_DISEASE_ID.txt                  
 
-african/GENE_LIST_for_each_DISEASE_ID.txt                    #African GWAS hits
+### African GWAS hits
+african/GENE_LIST_for_each_DISEASE_ID.txt                    
 
-east_asian/GENE_LIST_for_each_DISEASE_ID.txt                    #East Asian GWAS hits
+### East Asian GWAS hits
+east_asian/GENE_LIST_for_each_DISEASE_ID.txt                    
 
-south_asian/GENE_LIST_for_each_DISEASE_ID.txt                  #South Asian GWAS hits
+### South Asian GWAS hits
+south_asian/GENE_LIST_for_each_DISEASE_ID.txt                  
 
-hispanic/GENE_LIST_for_each_DISEASE_ID.txt                     #Hispanic GWAS hits
+### Hispanic GWAS hits
+hispanic/GENE_LIST_for_each_DISEASE_ID.txt 
 
 ### Core Genes 
 
