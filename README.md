@@ -239,7 +239,7 @@ hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt
 
 `perl annotate_studies_with_excess_PPI_edges.pl`
 
-### Calculate distance between GWAS hit and core gene and remove core genes that are within 1MB of a gwas hit
+### Remove core genes that are within 1MB of a GWAS hit
 
 `perl get_distance.pl`
 
