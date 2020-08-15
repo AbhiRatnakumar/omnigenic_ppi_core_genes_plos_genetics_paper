@@ -1,6 +1,6 @@
-############################################################################################
-DOWNLOAD INPUT FILES
-############################################################################################
+
+# DOWNLOAD INPUT FILES
+
 (1) Download files from the STRING network.
 Navigate to https://string-db.org/, click "Download", specify "Homo sapiens" in the box that states "choose an organism"
 
@@ -28,9 +28,9 @@ download gwas-efo-trait-mappings.tsv
 Navigate to https://www.genenames.org/, click "Downloads", then click "Statistics and download files". Download txt file of protein coding genes.
 gene_with_protein_product.txt
 
-#####################################################################################
-INITIAL SET UP
-#####################################################################################
+
+# INITIAL SET UP
+
 
 Step1:
 Make new folders for each ancestry.
@@ -95,9 +95,9 @@ cd hispanic/
 cp step1_hispanic.pl step1.pl
 cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh
 
-#####################################################################################
-ANALYSIS STEPS
-#####################################################################################
+
+# ANALYSIS STEPS
+
 The core gene detection is done separately for each ancestry. This means that the following commands need to be run within each ancestry folder.
 (This means that the following commands should be run within the european folder, african folder, east asian folder, south_asian folder and hispanic folder)
 
@@ -117,13 +117,13 @@ split -l 20000 HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies.txt HYPERGEO
 
 perl adjust_line_number_HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE.pl
 
-##### check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*)
+check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_studies*adjust*)
 
 ./run_hypergeometric_ratio_tests.sh
 
 cat dhyper_output_[a-z][a-z]* | awk '!/^V1/' > merged_dhyper_output_all_studies.txt
 
-#### BH correction for each study based on the numnber of PPI nodes each GWAs study hits ################
+# BH correction for each study based on the numnber of PPI nodes each GWAs study hits
 
 perl split_merged_file_by_accession_id.pl
 perl automate_making_the_script_for_running_BH_correction.pl
@@ -133,7 +133,7 @@ chmod +x run_BH_multiple_testing_corrections_study_accessions.sh
 ./run_sort_by_p_value_after_BH_multiple_testing_corrections_study_accessions.sh
 perl get_study_accession_core_genes_that_pass_cut_off.pl
 
-######### OUTPUT FILES ##############################################################      
+# OUTPUT FILES     
 
 #GWAS Hits ####
 
@@ -151,17 +151,17 @@ east_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt   #East Asian core
 south_asian/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt  #South Asian core genes
 hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt     #Hispanic Core genes
 
-### MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 ###################
+# MERGE GWAS HITS ACROSS ANCESTRIES TO CREATE SUPPLEMENTARY FILE 1 
 
 cp merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl ../
 perl merge_GENE_LIST_for_each_DISEASE_ID_from_5_different_ancestries.pl
 
-### MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE X####################
+# MERGE CORE GENES ACROSS ANCESTRIES TO MERGE SUPPLEMENTARY FILE 
 
 cp merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl ../
 perl merge_STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION_from_5_different_ancestries.pl
 
-#### FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit #######################################
+# FILTER CORE GENES DETECTED BY ONLY 1 GWAS hit 
 cd european/
 perl remove_lines_with_1_overlap.pl
 
@@ -187,7 +187,7 @@ perl filter_for_2_or_more_gwas_hits.pl
 
 perl annotate_studies_with_excess_PPI_edges.pl
 
-#### Calculate distance between GWAS hit and core gene and remove core genes that are within 1MB of a gwas hit
+# Calculate distance between GWAS hit and core gene and remove core genes that are within 1MB of a gwas hit
 
 perl get_distance.pl
 
@@ -199,10 +199,10 @@ perl get_all_combinations_of_two.pl
 
 perl get_proportion_of_GWAS_hits_in_each_core_gene_detection_line.pl
 
-######### Make Supplementary Table 2 ##################################
+# Make Supplementary Table 2 
 
 perl make_S2_table.pl
 
-######## Make Supplementary Table 3 ###################################
+# Make Supplementary Table 3 
 
 perl make_S3_table.pl
