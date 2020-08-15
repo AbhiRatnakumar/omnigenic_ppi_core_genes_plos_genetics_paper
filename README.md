@@ -4,29 +4,35 @@
 1. Download files from the STRING network.
 Navigate to https://string-db.org/, click "Download", specify "Homo sapiens" in the box that states "choose an organism"
 
-Download the following files from "INTERACTION DATA"
+      -Download the following files from "INTERACTION DATA"
 
-9606.protein.actions.v10.5.txt
-9606.protein.links.v10.5.txt
+         -9606.protein.actions.v10.5.txt
+         -9606.protein.links.v10.5.txt
 
-Download the protein aliases file from "ACCESSORY DATA"
-protein.aliases.v10.5.txt
+       - Download the protein aliases file from "ACCESSORY DATA"
+
+          -protein.aliases.v10.5.txt
 
 2. Download data from the GWAS catalog
 Navigate to https://www.ebi.ac.uk/gwas/, click "Download", click "Files".
 
-download "All ancestry data v1.0"
-gwas_catalog-ancestry_r2018-08-28.tsv
+     - Download "All ancestry data v1.0"
 
-download "All associations v1.0"
-gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
+         -gwas_catalog-ancestry_r2018-08-28.tsv
 
-navigate to "GWAS to EFO mappings", then click on "our FTP server"
-download gwas-efo-trait-mappings.tsv
+     - Download "All associations v1.0"
+
+         -gwas_catalog_v1.0.2-associations_e93_r2018-08-28.tsv
+
+     - Navigate to "GWAS to EFO mappings", then click on "our FTP server" and download
+ 
+         - gwas-efo-trait-mappings.tsv
 
 3. Download HGNC protein names
-Navigate to https://www.genenames.org/, click "Downloads", then click "Statistics and download files". Download txt file of protein coding genes.
-gene_with_protein_product.txt
+     
+     - Navigate to https://www.genenames.org/, click "Downloads", then click "Statistics and download files". Download txt file of protein coding genes.
+
+         - gene_with_protein_product.txt
 
 
 # INITIAL SET UP
@@ -77,23 +83,31 @@ Navigate to each ancestry folder and replace the step1.pl script with the ancest
 
 ## African 
 `cd african/`
+
 `cp step1_african.pl step1.pl`
+
 `cp run_hypergeometric_ratio_tests_african.sh run_hypergeometric_ratio_tests.sh`
 
 ## East Asian 
-`cd east_asian/`
-`cp step1_east_asian.pl step1.pl`
-`cp run_hypergeometric_ratio_tests_east_asian.sh run_hypergeometric_ratio_tests.sh`
+`cd east_asian/`. 
+
+`cp step1_east_asian.pl step1.pl`. 
+
+`cp run_hypergeometric_ratio_tests_east_asian.sh run_hypergeometric_ratio_tests.sh`. 
 
 ## South Asian 
-`cd south_asian/`
-`cp step1_south_asian.pl step1.pl`
-`cp run_hypergeometric_ratio_tests_south_asian.sh run_hypergeometric_ratio_tests.sh`
+`cd south_asian/`. 
+
+`cp step1_south_asian.pl step1.pl`. 
+
+`cp run_hypergeometric_ratio_tests_south_asian.sh run_hypergeometric_ratio_tests.sh`. 
 
 ## Hispanic 
-`cd hispanic/`
-`cp step1_hispanic.pl step1.pl`
-`cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh`
+`cd hispanic/`. 
+
+`cp step1_hispanic.pl step1.pl`. 
+
+`cp run_hypergeometric_ratio_tests_hispanic.sh run_hypergeometric_ratio_tests.sh`. 
 
 
 # ANALYSIS STEPS
