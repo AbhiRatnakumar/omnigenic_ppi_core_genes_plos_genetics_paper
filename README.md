@@ -151,7 +151,7 @@ check the line numbers match (wc HYPERGEOMETRIC_RATIO_TEST_INPUT_FILE_for_all_st
 
 # OUTPUT FILES     
 
-### GWAS Hits 
+## GWAS Hits: 
 
 ### European GWAS hits
 european/GENE_LIST_for_each_DISEASE_ID.txt                  
@@ -168,7 +168,7 @@ south_asian/GENE_LIST_for_each_DISEASE_ID.txt
 ### Hispanic GWAS hits
 hispanic/GENE_LIST_for_each_DISEASE_ID.txt 
 
-### Core Genes 
+## Core Genes: 
 
 ### European core genes
 
