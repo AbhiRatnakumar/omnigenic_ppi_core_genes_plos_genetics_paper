@@ -1,5 +1,6 @@
 This code is for the paper: https://doi.org/10.1371/journal.pgen.1008903
 
+# THE NETWORK USED IN THIS ANALYSIS IS THE FILE : network.tar.gz
 
 # DOWNLOAD INPUT FILES
 
