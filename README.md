@@ -2,6 +2,8 @@ This code is for the paper: https://doi.org/10.1371/journal.pgen.1008903
 
 # THE NETWORK USED IN THIS ANALYSIS IS THE FILE : network.tar.gz
 
+# List of all 11,049 proteins used in this study : FINAL_LIST_PROTEIN_CODING_GENE_HGNC_IDS_SCORE_GT_700_ONLY_BINDING.txt
+
 # DOWNLOAD INPUT FILES
 
 1. Download files from the STRING network.
