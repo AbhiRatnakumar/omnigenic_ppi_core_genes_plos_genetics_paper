@@ -267,11 +267,11 @@ hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt
 
 ### Network Randomization scripts ###
 
-# 1. randomize nodes with the same degree #
+#### 1. randomize nodes with the same degree ####
 `perl STEP1_IN_RANDOMIZING_NETWORKS.pl `
 
-# 2. get nodes with unique degree #
+#### 2. get nodes with unique degree ####
 `perl get_LARGE_DEGREE_NODES.pl `
 
-# 3. randomize nodes with unique degree #
+#### 3. randomize nodes with unique degree ####
 `python3 STEP2_IN_RANDOMIZING_NETWORKS_LARGE_DEGREE_NODES.py `
