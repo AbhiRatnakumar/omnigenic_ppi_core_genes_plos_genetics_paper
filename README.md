@@ -263,3 +263,15 @@ hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt
 ### Make Supplementary Table 3 
 
 `perl make_S3_table.pl`
+
+
+### Network Randomization scripts ###
+
+## randomize nodes with the same degree ###
+`perl STEP1_IN_RANDOMIZING_NETWORKS.pl `
+
+## get nodes with unique degree ###
+`perl get_LARGE_DEGREE_NODES.pl `
+
+## randomize nodes with unique degree ##
+`python3 STEP2_IN_RANDOMIZING_NETWORKS_LARGE_DEGREE_NODES.py `
