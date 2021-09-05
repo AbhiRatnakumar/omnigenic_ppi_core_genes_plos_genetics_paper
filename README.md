@@ -268,10 +268,17 @@ hispanic/STUDY_ACCESSION_CORE_GENES_AFTER_BH_CORRECTION.txt
 ### Network Randomization scripts ###
 
 #### 1. randomize nodes with the same degree ####
-`perl STEP1_IN_RANDOMIZING_NETWORKS.pl `
+`python3 STEP1_IN_RANDOMIZING_NETWORKS_MY_OWN_NETWORKX.py `
 
 #### 2. get nodes with unique degree ####
 `perl get_LARGE_DEGREE_NODES.pl `
 
 #### 3. randomize nodes with unique degree ####
-`python3 STEP2_IN_RANDOMIZING_NETWORKS_LARGE_DEGREE_NODES.py `
+`python3 STEP2_IN_RANDOMIZING_NETWORKS_LARGE_DEGREE_NODES.py My_own_randomized_network_STRING_0_UNIQUE_DEGREE.csv UNIQUE_NETWORK_0 `
+
+#### 4. Combine the unique degree nodes with other nodes to make the final randomized network ####
+` perl merge_randomized_unique_degrees_with_randomized_everything_else.pl My_own_randomized_network_STRING_0_UNIQUE_DEGREE_EVERYTHING_ELSE.csv UNIQUE_NETWORK_0 RANDOMIZED_NETWORK_0.txt `
+
+#### 5. Randomized network output file ####
+RANDOMIZED_NETWORK_0.txt
+
