@@ -1,11 +1,12 @@
 import networkx as nx
 import matplotlib.pyplot as plt
+import sys
 
-G = nx.read_edgelist('My_own_randomized_network_STRING_TEST.csv_UNIQUE_DEGREE.csv')
 
-print (nx.info(G))
+input_filename = sys.argv[1]
+output_filename = sys.argv[2]
 
-for x in range(1, 1):
-    nx.double_edge_swap(G,nswap=10)
-    print (nx.info(G))
-    nx.write_edgelist(G, "UNIQUE_degree_network_"+ str(x) + ".txt")
+G = nx.read_edgelist(input_filename)
+
+nx.double_edge_swap(G,nswap=100000, max_tries=500000)
+nx.write_edgelist(G, output_filename)
